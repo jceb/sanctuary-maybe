@@ -22,7 +22,7 @@
 //. ```
 
 import show from 'sanctuary-show';
-import Z from 'sanctuary-type-classes';
+import * as Z from 'sanctuary-type-classes';
 
 export {Maybe, Nothing, Just, maybe};
 

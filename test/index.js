@@ -7,8 +7,8 @@ import test from 'oletus';
 import Either from 'sanctuary-either';
 import Identity from 'sanctuary-identity';
 import show from 'sanctuary-show';
-import Z from 'sanctuary-type-classes';
-import type from 'sanctuary-type-identifiers';
+import * as Z from 'sanctuary-type-classes';
+import {identifierOf, parseIdentifier} from 'sanctuary-type-identifiers';
 import Useless from 'sanctuary-useless';
 
 import {Maybe, Nothing, Just, maybe} from '../index.js';
@@ -62,9 +62,9 @@ test ('tags', () => {
 });
 
 test ('@@type', () => {
-  eq (type (Nothing), 'sanctuary-maybe/Maybe@1');
-  eq (type (Just (0)), 'sanctuary-maybe/Maybe@1');
-  eq (type.parse (type (Just (0))),
+  eq (identifierOf (Nothing), 'sanctuary-maybe/Maybe@1');
+  eq (identifierOf (Just (0)), 'sanctuary-maybe/Maybe@1');
+  eq (parseIdentifier (identifierOf (Just (0))),
       {namespace: 'sanctuary-maybe', name: 'Maybe', version: 1});
 });
 
